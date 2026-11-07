@@ -451,8 +451,8 @@ void drawGreekFontTest()
     display.drawFastHLine(24, 208, display.width() - 48, GxEPD_RED);
     drawGreekText(24, 218, "U8G2 GREEK SIZE TEST:", GxEPD_RED, 2);
 
-    // Prime the U8g2 adapter once. On this GxEPD2 target its first draw can
-    // leave solid blocks; erase that disposable pass before the real text.
+    // Προθέρμανση U8g2: η πρώτη σχεδίαση μπορεί να αφήσει μαύρα κουτάκια.
+    // U8g2 warm-up: erase this disposable pass before the real text.
     drawU8g2GreekText(24, 258, "Αθήνα", GxEPD_BLACK);
     display.fillRect(20, 236, display.width() - 40, 30, GxEPD_WHITE);
 
@@ -463,7 +463,8 @@ void drawGreekFontTest()
                           u8g2_font_10x20_t_greek);
 
     drawGreekText(24, 306, "CU12:", GxEPD_RED, 1);
-    // Font changes also need one disposable draw on this target.
+    // Κάθε αλλαγή font χρειάζεται μία προσωρινή σχεδίαση και καθάρισμα.
+    // Each font change also needs one disposable draw on this target.
     drawU8g2GreekTextFont(24, 330, "Αθήνα", GxEPD_BLACK,
                           u8g2_font_cu12_t_greek);
     display.fillRect(20, 314, display.width() - 40, 22, GxEPD_WHITE);

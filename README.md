@@ -11,6 +11,55 @@ Unicode Greek text. It also includes a handmade 6x10 comparison renderer.
 
 ![Greek U8g2 font comparison on the Waveshare 7.5-inch e-paper display](images/greek-font-comparison.png)
 
+## Ελληνικές οδηγίες
+
+Το παράδειγμα εμφανίζει ελληνικό κείμενο UTF-8 σε οθόνη Waveshare 7.5-inch
+E-Paper HAT (B), 800x480, κόκκινο/μαύρο/λευκό (SKU 13505), με πλακέτα
+LILYGO T-SIM7080 ESP32-S3.
+
+### Προτεινόμενες γραμματοσειρές
+
+- `u8g2_font_10x20_t_greek`: η καθαρότερη επιλογή για βασικό κείμενο,
+  θερμοκρασία, ονόματα και κύριες ενδείξεις.
+- `u8g2_font_cu12_t_greek`: μικρότερη γραμματοσειρά για δευτερεύουσες
+  πληροφορίες όταν ο διαθέσιμος χώρος είναι περιορισμένος.
+- `u8g2_font_unifont_t_greek`: λειτουργεί σωστά, αλλά είναι λεπτότερη και
+  λιγότερο ευανάγνωστη από απόσταση.
+- Η χειροποίητη 6x10 διατηρείται μόνο για σύγκριση και πειραματισμό.
+
+### Εγκατάσταση
+
+Από το **Library Manager** του Arduino IDE εγκαταστήστε:
+
+1. GxEPD2
+2. Adafruit GFX Library
+3. U8g2
+4. U8g2_for_Adafruit_GFX
+
+Ανοίξτε το `T_SIM7080_7in5b_U8g2_GreekFont_Test.ino`, επιλέξτε
+**ESP32S3 Dev Module**, 16 MB Flash, OPI PSRAM και Huge APP και στη συνέχεια
+πατήστε **Upload**. Το αρχείο πρέπει να παραμείνει αποθηκευμένο ως UTF-8 για
+να μην αλλοιωθούν τα ελληνικά κείμενα.
+
+### Σημαντικό για τα μαύρα κουτάκια
+
+Στη συγκεκριμένη οθόνη, η πρώτη σχεδίαση U8g2 μετά από αλλαγή γραμματοσειράς
+μπορεί να εμφανιστεί ως μαύρα ορθογώνια. Ο κώδικας κάνει πρώτα μία προσωρινή
+σχεδίαση και καθαρίζει εκείνη την περιοχή του framebuffer. Μην αφαιρέσετε
+αυτό το warm-up όταν αλλάζετε μεταξύ 10x20, CU12 και Unifont.
+
+### Συνδεσμολογία
+
+| Σήμα οθόνης | GPIO ESP32-S3 |
+|---|---:|
+| SCK | 12 |
+| MOSI / DIN | 11 |
+| CS | 10 |
+| DC | 13 |
+| RST | 14 |
+| BUSY | 21 |
+| Τροφοδοσία οθόνης | 47 |
+
 ## Tested result
 
 - `u8g2_font_10x20_t_greek`: recommended for primary text. It is the clearest
