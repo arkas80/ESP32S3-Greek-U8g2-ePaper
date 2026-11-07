@@ -5,7 +5,8 @@ Arduino example for displaying modern Greek UTF-8 text on a Waveshare
 LILYGO T-SIM7080 ESP32-S3.
 
 The example uses `GxEPD2` for the display and `U8g2_for_Adafruit_GFX` for
-Unicode Greek text. It also includes a handmade 6x10 comparison renderer.
+Unicode Greek text. The sketch now focuses exclusively on the tested U8g2
+fonts, without a separate custom renderer.
 
 ## Display result
 
@@ -25,7 +26,6 @@ LILYGO T-SIM7080 ESP32-S3.
   πληροφορίες όταν ο διαθέσιμος χώρος είναι περιορισμένος.
 - `u8g2_font_unifont_t_greek`: λειτουργεί σωστά, αλλά είναι λεπτότερη και
   λιγότερο ευανάγνωστη από απόσταση.
-- Η χειροποίητη 6x10 διατηρείται μόνο για σύγκριση και πειραματισμό.
 
 ### Εγκατάσταση
 
@@ -67,7 +67,6 @@ LILYGO T-SIM7080 ESP32-S3.
 - `u8g2_font_cu12_t_greek`: recommended for compact secondary information.
 - `u8g2_font_unifont_t_greek`: supported, but thinner and less readable from a
   distance.
-- Handmade 6x10: retained only for comparison and experimentation.
 
 The test includes uppercase and lowercase Greek, tonos, dialytika, combined
 tonos/dialytika, the degree symbol, and sample weather-station text.
@@ -135,10 +134,8 @@ preserved.
 
 ## Files
 
-- `T_SIM7080_7in5b_U8g2_GreekFont_Test.ino`: complete comparison sketch.
-- `GreekFont5x7.h`: handmade comparison font derived from the author's
-  [glcdfont_GR-for-YoRadio](https://github.com/arkas80/glcdfont_GR-for-YoRadio)
-  project.
+- `T_SIM7080_7in5b_U8g2_GreekFont_Test.ino`: πλήρες παράδειγμα με τις τρεις
+  δοκιμασμένες ελληνικές γραμματοσειρές U8g2 και ελληνικά σχόλια.
 - `THIRD_PARTY_LICENSES.md`: library and font attribution.
 
 ## Related Greek GFX work
@@ -151,6 +148,6 @@ modified Adafruit GFX installation.
 
 ## License
 
-The original example code and handmade font in this repository are released
-under the MIT License; see `LICENSE`. Third-party libraries and U8g2 fonts
-retain their own licenses; see `THIRD_PARTY_LICENSES.md`.
+The original example code in this repository is released under the MIT
+License; see `LICENSE`. Third-party libraries and U8g2 fonts retain their own
+licenses; see `THIRD_PARTY_LICENSES.md`.

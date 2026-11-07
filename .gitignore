@@ -1,0 +1,9 @@
+# Arduino CLI build output / Προσωρινά αρχεία μεταγλώττισης
+.build-*/
+build/
+
+# Τοπικά αρχεία συστήματος και IDE
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
