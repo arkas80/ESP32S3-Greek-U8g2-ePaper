@@ -7,6 +7,10 @@ LILYGO T-SIM7080 ESP32-S3.
 The example uses `GxEPD2` for the display and `U8g2_for_Adafruit_GFX` for
 Unicode Greek text. It also includes a handmade 6x10 comparison renderer.
 
+## Display result
+
+![Greek U8g2 font comparison on the Waveshare 7.5-inch e-paper display](images/greek-font-comparison.png)
+
 ## Tested result
 
 - `u8g2_font_10x20_t_greek`: recommended for primary text. It is the clearest
